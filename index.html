@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConstruCosto - Plataforma de Ingeniería Civil</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="screen" id="homeScreen">
+    <div class="home">
+        <div class="left">
+            <div>
+                <div class="logo-section">
+                    <div class="logo">CIVIL</div>
+                    <div>
+                        <div class="title"><span class="blue">CONSTRU</span><span class="yellow">COSTO</span></div>
+                        <div class="subtitle">COSTEO INTELIGENTE PARA CONSTRUIR MEJOR</div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    La plataforma digital para estimar y controlar <span>costos de materiales</span> de tu obra con precisión técnica.
+                </div>
+
+                <div class="menu">
+                    <div class="menu-item" onclick="showRegister()">
+                        <div class="icon-box">👤</div>
+                        <h3>REGÍSTRATE</h3>
+                    </div>
+
+                    <div class="menu-item" onclick="showRegister()">
+                        <div class="icon-box">🧮</div>
+                        <h3>COTIZA</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button">Más precisión, Más control, <span>MEJOR TRABAJO</span></div>
+        </div>
+
+        <div class="right">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1400&auto=format&fit=crop" alt="Construcción">
+            <div class="page"></div>
+        </div>
+    </div>
+</div>
+
+<div class="screen" id="registerScreen">
+    <div class="register-screen">
+        <div class="top-border"></div>
+
+        <div class="register-header">
+            <div class="logo-area">
+                <div class="logo-small">CIVIL</div>
+                <div class="register-title"><span class="blue">CONSTRU</span><span class="yellow">COSTO</span></div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="form-title">REGÍSTRATE</div>
+
+            <form id="registerForm">
+                <input type="text" id="nombre" class="input-box" placeholder="NOMBRE:" required>
+                <input type="text" id="apellidos" class="input-box" placeholder="APELLIDOS:" required>
+                <input type="email" id="correo" class="input-box" placeholder="CORREO:" required>
+                <input type="text" id="lugar" class="input-box" placeholder="LUGAR:" required>
+                <div style="width: 100%; position: relative; display: flex; flex-direction: column;">
+                    <input type="password" id="password" class="input-box" placeholder="CONTRASEÑA:" required minlength="8" style="margin-bottom: 8px;">
+                    <div id="password-strength-wrapper" style="margin-bottom: 15px; text-align: left; width: 100%; padding: 0 4px;">
+                        <div id="strength-bar" style="height: 4px; width: 0%; background: #ccc; transition: all 0.3s ease; border-radius: 2px;"></div>
+                        <span id="strength-text" style="font-size: 11px; font-weight: 600; color: #666; display: block; margin-top: 5px;">Mínimo 8 caracteres.</span>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn" class="register-btn" disabled>REGISTRAR</button>
+            </form>
+
+            <button class="back-btn" onclick="goHome()">VOLVER</button>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="screen" id="dashboardScreen">
+    <div class="orange-dashboard">
+        <div class="dash-header">
+            <div class="home-icon-box" onclick="goHome()">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            </div>
+            <div class="dash-nav">
+                <span class="nav-link" onclick="switchDashView('planificacion')">Planificación</span>
+                <span class="nav-link" onclick="switchDashView('carrito')">Mi Lista</span>
+                <span class="nav-link" onclick="switchDashView('nosotros')">Quiénes Somos</span>
+            </div>
+            <div class="cart-icon-box" onclick="switchDashView('carrito')">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            </div>
+        </div>
+
+        <div class="dash-content">
+            <div class="dash-sidebar">
+                <button class="sidebar-btn" onclick="filterZone('estructuras', this)" id="btn-estructuras">Zona Estructuras</button>
+                <button class="sidebar-btn" onclick="filterZone('acabados', this)">Zona Acabados</button>
+                <button class="sidebar-btn" onclick="filterZone('agua', this)">Zona Agua</button>
+                <button class="sidebar-btn" onclick="filterZone('social', this)">Zona Social</button>
+                <button class="sidebar-btn" onclick="filterZone('fachada', this)">Zona Fachada</button>
+                <button class="sidebar-btn" onclick="filterZone('interiores', this)">Zona Interiores</button>
+            </div>
+
+            <div class="dash-main-panel">
+                
+                <div class="dash-view active-view" id="view-planificacion">
+                    <div class="view-header-row">
+                        <div class="view-title">PROVEEDORES HOMOLOGADOS Y MATERIALES</div>
+                    </div>
+                    <div class="dash-grid" id="providers-grid">
+                        
+                        <div class="grid-card zone-estructuras interactive-card" onclick="openModal('modEst1')"><img src="img/cementospacasmayo.jpg" alt="Cemento Sol"><div class="card-info"><h4>Cemento Pacasmayo <span>(Cotizar)</span></h4><p class="distance">2.5 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-estructuras interactive-card" onclick="openModal('modEst2')"><img src="img/ladrillos_lark.jpeg" alt="Lark"><div class="card-info"><h4>Ladrillos Lark S.A. <span>(Cotizar)</span></h4><p class="distance">4.1 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-estructuras interactive-card" onclick="openModal('modEst3')"><img src="img/aceros_arequipa.jpg" alt="Arequipa"><div class="card-info"><h4>Aceros Arequipa <span>(Cotizar)</span></h4><p class="distance">5.8 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-estructuras interactive-card" onclick="openModal('modEst4')"><img src="img/maderas_encofrados.jpg" alt="Maderas"><div class="card-info"><h4>Maderas y Encofrados <span>(Cotizar)</span></h4><p class="distance">3.2 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-estructuras interactive-card" onclick="openModal('modEst5')"><img src="img/concreteras_sur.png" alt="Concretera"><div class="card-info"><h4>Concretera Premezclado <span>(Cotizar)</span></h4><p class="distance">8.4 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-estructuras interactive-card" onclick="openModal('modEst6')"><img src="img/agregados_sanjuan.jpg" alt="Agregados"><div class="card-info"><h4>Agregados Cantera <span>(Cotizar)</span></h4><p class="distance">1.2 KM DISTANCIA</p></div></div>
+
+                        <div class="grid-card zone-acabados interactive-card" onclick="openModal('modAca1')"><img src="img/ceramicos_celima.jpg" alt="Porcelanato Importado"><div class="card-info"><h4>Porcelanatos Importados <span>(Cotizar)</span></h4><p class="distance">3.2 KM DISTANCIA</p></div></div>
+                        <div class="grid-card zone-acabados interactive-card" onclick="openModal('modAca2')"><img src="img/acabados_casinelli.jpg" alt="Cassinelli"><div class="card-info"><h4>Acabados Cassinelli <span>(Cotizar)</span></h4><p class="distance">5.8 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-acabados interactive-card" onclick="openModal('modAca3')"><img src="img/pinturas_cpp.png" alt="Pintura Vencedor"><div class="card-info"><h4>Pinturas CPP <span>(Cotizar)</span></h4><p class="distance">2.1 KM DISTANCIA</p></div></div>
+                        <div class="grid-card zone-acabados interactive-card" onclick="openModal('modAca4')"><img src="img/vidrieria_miyasato.png" alt="Espejos"><div class="card-info"><h4>Cristales y Espejos <span>(Cotizar)</span></h4><p class="distance">4.1 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-acabados interactive-card" onclick="openModal('modAca5')"><img src="img/decorcenter.png" alt="Decor Center"><div class="card-info"><h4>Pisos Laminados <span>(Cotizar)</span></h4><p class="distance">6.3 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-acabados interactive-card" onclick="openModal('modAca6')"><img src="img/drywall_pro.png" alt="Drywall"><div class="card-info"><h4>Tabiquería Drywall <span>(Cotizar)</span></h4><p class="distance">7.0 KM DISTANCIA</p></div></div>
+
+                        <div class="grid-card card-tall zone-agua interactive-card" onclick="openModal('modAgu1')"><img src="img/pavco_wavin.png" alt="Pavco"><div class="card-info"><h4>Tuberías Pavco <span>(Cotizar)</span></h4><p class="distance">1.8 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-agua interactive-card" onclick="openModal('modAgu2')"><img src="img/tanques_rotoplas.png" alt="Rotoplas"><div class="card-info"><h4>Cisternas Rotoplas <span>(Cotizar)</span></h4><p class="distance">4.2 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-agua interactive-card" onclick="openModal('modAgu3')"><img src="img/aquatec.png" alt="Filtros"><div class="card-info"><h4>Filtros Piscina <span>(Cotizar)</span></h4><p class="distance">5.5 KM DISTANCIA</p></div></div>
+                        <div class="grid-card zone-agua interactive-card" onclick="openModal('modAgu4')"><img src="img/bombas_hidrostal.png" alt="Hidrostal"><div class="card-info"><h4>Bombas Hidrostal <span>(Cotizar)</span></h4><p class="distance">3.1 KM DISTANCIA</p></div></div>
+                        <div class="grid-card zone-agua interactive-card" onclick="openModal('modAgu5')"><img src="img/griferia_vainsa.png" alt="Vainsa"><div class="card-info"><h4>Griferías Vainsa <span>(Cotizar)</span></h4><p class="distance">6.3 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-agua interactive-card" onclick="openModal('modAgu6')"><img src="img/trebol.png" alt="Trebol"><div class="card-info"><h4>Sanitarios Trebol <span>(Cotizar)</span></h4><p class="distance">2.9 KM DISTANCIA</p></div></div>
+
+                        <div class="grid-card card-tall zone-social interactive-card" onclick="openModal('modSoc1')"><img src="img/deck_premium.png" alt="Decks Fusion"><div class="card-info"><h4>Decks WPC Fusion <span>(Cotizar)</span></h4><p class="distance">6.8 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-social interactive-card" onclick="openModal('modSoc2')"><img src="img/mrgrill_parrillas.png" alt="Parrillas"><div class="card-info"><h4>Mr. Grill Parrillas <span>(Cotizar)</span></h4><p class="distance">3.0 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-social interactive-card" onclick="openModal('modSoc3')"><img src="img/rattan_muebles.jpg" alt="Rattan"><div class="card-info"><h4>Mobiliario Exterior <span>(Cotizar)</span></h4><p class="distance">4.0 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-social interactive-card" onclick="openModal('modSoc4')"><img src="img/ilumina_led.jpg" alt="LED"><div class="card-info"><h4>Iluminación Jardines <span>(Cotizar)</span></h4><p class="distance">7.5 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-social interactive-card" onclick="openModal('modSoc5')"><img src="img/toldos_sombras.jpg" alt="Toldos"><div class="card-info"><h4>Toldos Retráctiles <span>(Cotizar)</span></h4><p class="distance">9.1 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-social interactive-card" onclick="openModal('modSoc6')"><img src="img/piscinas_prefabricadas.jpg" alt="Piscinas"><div class="card-info"><h4>Piscinas Prefabricadas <span>(Cotizar)</span></h4><p class="distance">12.5 KM DISTANCIA</p></div></div>
+
+                        <div class="grid-card card-tall zone-fachada interactive-card" onclick="openModal('modFac1')"><img src="img/revestimientos_lajas.jpg" alt="Piedra"><div class="card-info"><h4>Revestimientos Piedra <span>(Cotizar)</span></h4><p class="distance">2.2 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-fachada interactive-card" onclick="openModal('modFac2')"><img src="img/puertas_seccionales.jpg" alt="Puertas"><div class="card-info"><h4>Puertas Seccionales <span>(Cotizar)</span></h4><p class="distance">5.0 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-fachada interactive-card" onclick="openModal('modFac3')"><img src="img/pinturas_exteriores.jpg" alt="Pintura"><div class="card-info"><h4>Microcemento Fachada <span>(Cotizar)</span></h4><p class="distance">3.6 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-fachada interactive-card" onclick="openModal('modFac4')"><img src="img/aluminio_fachada.jpg" alt="Aluminio"><div class="card-info"><h4>Paneles Alucobond <span>(Cotizar)</span></h4><p class="distance">4.8 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-fachada interactive-card" onclick="openModal('modFac5')"><img src="img/vidrios_exteriores.jpg" alt="Muro Cortina"><div class="card-info"><h4>Muro Cortina Vidrio <span>(Cotizar)</span></h4><p class="distance">6.1 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-fachada interactive-card" onclick="openModal('modFac6')"><img src="img/iluminacion_fachada.png" alt="Iluminacion"><div class="card-info"><h4>Iluminación Fachada <span>(Cotizar)</span></h4><p class="distance">3.9 KM DISTANCIA</p></div></div>
+
+                        <div class="grid-card card-tall zone-interiores interactive-card" onclick="openModal('modInt1')"><img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=400" alt="Dicroicos"><div class="card-info"><h4>Luminarias Empotradas <span>(Cotizar)</span></h4><p class="distance">4.4 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-interiores interactive-card" onclick="openModal('modInt2')"><img src="img/puertas_contraplacadas.jpg" alt="Puertas Int"><div class="card-info"><h4>Puertas Contraplacadas <span>(Cotizar)</span></h4><p class="distance">5.2 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-interiores interactive-card" onclick="openModal('modInt3')"><img src="img/melamina_pelikano.jpg" alt="Melamina"><div class="card-info"><h4>Melamina Pelíkano <span>(Cotizar)</span></h4><p class="distance">2.8 KM DISTANCIA</p></div></div>
+                        <div class="grid-card zone-interiores interactive-card" onclick="openModal('modInt4')"><img src="img/cortinas_hunter_douglas.png" alt="Rollers"><div class="card-info"><h4>Rollers Blackout <span>(Cotizar)</span></h4><p class="distance">7.1 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-interiores interactive-card" onclick="openModal('modInt5')"><img src="img/alfombras_tapices.jpg" alt="Tapices"><div class="card-info"><h4>Alfombras y Tapices <span>(Cotizar)</span></h4><p class="distance">3.3 KM DISTANCIA</p></div></div>
+                        <div class="grid-card card-tall zone-interiores interactive-card" onclick="openModal('modInt6')"><img src="img/aire_acondicionado_logo.jpg" alt="Aire"><div class="card-info"><h4>Aire Acondicionado <span>(Cotizar)</span></h4><p class="distance">8.0 KM DISTANCIA</p></div></div>
+
+                        <div class="grid-card card-tall zone-profesionales interactive-card" onclick="openModal('modProf1')"><img src="img/maestro_obra.jpg" alt="Maestro de Obra"><div class="card-info"><h4>Maestros de Obra y Albañilería <span>(Contratar)</span></h4><p class="distance">Personal Verificado SENCICO</p></div></div>
+                        <div class="grid-card card-tall zone-profesionales interactive-card" onclick="openModal('modProf2')"><img src="img/supervision_obra.jpg" alt="Ingeniero Civil"><div class="card-info"><h4>Ingenieros Residentes y PMO <span>(Contratar)</span></h4><p class="distance">Supervisión CIP y Metrados</p></div></div>
+                        <div class="grid-card card-tall zone-profesionales interactive-card" onclick="openModal('modProf3')"><img src="img/tecnico_electricista.jpg" alt="Instalaciones"><div class="card-info"><h4>Especialistas Sanitarios y Eléctricos <span>(Contratar)</span></h4><p class="distance">Instalaciones y Certificaciones</p></div></div>
+                    </div>
+                </div>
+
+                <div class="dash-view" id="view-carrito">
+                    <div class="cart-view-layout">
+                        <div class="cart-left">
+                            <div class="view-title">MATERIALES SELECCIONADOS</div>
+                            <table class="cart-table">
+                                <thead><tr><th>CANT.</th><th>ITEM</th><th>P. UNIT</th><th>SUBTOTAL</th><th>🗑️</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                            <button class="success-btn" style="margin-top:20px; font-size:18px;">PROCESAR PAGO</button>
+                        </div>
+                        <div class="cart-right">
+                            <div class="view-title">LOGÍSTICA Y DESPACHO</div>
+                            <div class="shipping-status">
+                                <h4>ESTADO DEL ENVÍO: <span class="blue">Esperando orden de compra...</span></h4>
+                                <div class="status-bar"><div class="step">Alistamiento</div><div class="step">En Ruta</div><div class="step">Recepción</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="shipping-map" style="display:none; margin-top:25px;">
+                    <iframe
+                        id="googleMap"
+                        src="https://maps.google.com/maps?q=-8.1116,-79.0287&z=14&output=embed"
+                        width="100%"
+                        height="280"
+                        style="border:none;border-radius:15px;">
+                    </iframe>
+                </div>
+
+                <div class="dash-view" id="view-nosotros">
+                    <div class="view-header-row">
+                        <h2 class="view-title">¿Quiénes Somos?</h2>
+                    </div>
+                    <div class="text-view-layout">
+                        <div class="info-block">
+                            <h3>Nuestra Propuesta</h3>
+                            <p>Somos una plataforma digital especializada en el costeo y gestión de precios de materiales para proyectos de construcción civil. Nacimos con el objetivo de ayudar a estudiantes, ingenieros, contratistas y empresas constructoras a obtener presupuestos más rápidos, precisos y organizados.</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h3>Tecnología y Optimización</h3>
+                            <p>Nuestra plataforma integra tecnología, análisis de costos y herramientas digitales para facilitar la planificación de obras, optimizando tiempo y reduciendo errores en los cálculos de materiales y presupuestos.</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h3>Transformación en la Construcción</h3>
+                            <p>Buscamos transformar la manera en que se gestionan los costos en la construcción, brindando información actualizada, accesible y confiable para mejorar la toma de decisiones en cada proyecto.</p>
+                            <p style="margin-top: 15px; font-weight: 600; color: #1d0d92;">Trabajamos para ofrecer una solución moderna, práctica e innovadora que contribuya al desarrollo eficiente del sector construcción.</p>
+                        </div>
+
+                        <div style="display: flex; gap: 20px;">
+                            <div class="metric-banner" style="flex: 1;">
+                                <div class="metric-number">500+</div>
+                                <div>
+                                    <h4 style="font-size: 18px; color: #f5b000; font-weight: bold;">Obras Optimizadas</h4>
+                                    <p style="font-size: 13px; color: #fff; margin-top: 2px;">Cálculos exactos sin margen de error.</p>
+                                </div>
+                            </div>
+            
+                            <div class="metric-banner" style="flex: 1; background-color: #000;">
+                                <div class="metric-number">100%</div>
+                                <div>
+                                    <h4 style="font-size: 18px; color: #f26f21; font-weight: bold;">Digital y Confiable</h4>
+                                    <p style="font-size: 13px; color: #fff; margin-top: 2px;">Información actualizada en tiempo real.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dash-view" id="view-organizador">
+
+    <div class="view-header-row">
+        <div class="view-title">ORGANIZADOR ESPACIAL DE OBRA</div>
+
+        <button class="filter-btn"
+                id="btn-toggle-3d"
+                onclick="toggle3DMode()">
+            Alternar Modo Vista 3D
+        </button>
+    </div>
+
+    <div class="organizer">
+
+        <div class="toolbar">
+            <button>🏠 Inicio</button>
+            <button id="btn2D">2D</button>
+            <button id="btn3D">3D</button>
+        </div>
+
+        <div class="canvas">
+
+            <img src="img/planoCasa.png" class="house-plan">
+
+            <div id="drop-canvas"></div>
+
+        </div>
+
+        <div class="org-sidebar">
+
+            <h4>Elementos Disponibles</h4>
+
+            <div class="draggable-item"
+                 draggable="true"
+                 ondragstart="dragItem(event)"
+                 data-name="Piscina">
+                🏊 Piscina
+            </div>
+
+            <div class="draggable-item"
+                 draggable="true"
+                 ondragstart="dragItem(event)"
+                 data-name="Deck">
+                🪵 Deck
+            </div>
+
+            <div class="draggable-item"
+                 draggable="true"
+                 ondragstart="dragItem(event)"
+                 data-name="Cuarto de Bombas">
+                ⚙️ Cuarto de Bombas
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="successModal" class="success-modal">
+    <div class="success-box">
+        <div class="check-circle">✓</div>
+        <h2>¡VALIDACIÓN EXITOSA!</h2>
+        <p id="successText">Su cuenta corporativa ha sido creada exitosamente.</p>
+        <button class="success-btn" onclick="closeModal('successModal'); triggerDefaultZone();">ENTENDIDO</button>
+    </div>
+</div>
+
+<div id="modals-container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

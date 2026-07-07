@@ -1,0 +1,190 @@
+/* =========================
+   GENERAL
+========================= */
+*{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+body{ overflow:hidden; }
+.screen{ width:100%; height:100vh; display:none; }
+.active{ display:flex; }
+
+/* =========================
+   PAGINA PRINCIPAL
+========================= */
+.home{ width:100%; height:100vh; display:flex; }
+.left{ width:45%; background:white; padding:40px 50px; display:flex; flex-direction:column; justify-content:space-between; }
+.logo-section{ display:flex; align-items:center; gap:15px; }
+.logo{ width:70px; height:70px; border-radius:10px; background:linear-gradient(135deg,#f5b000,#ff7b00); display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; }
+.title{ font-size:55px; font-weight:800; font-style:italic; }
+.blue{ color:#1d0d92; }
+.yellow{ color:#f0b000; }
+.subtitle{ font-size:16px; }
+.description{ margin-top:40px; color:#1d0d92; font-size:24px; font-weight:600; line-height:1.5; }
+.description span{ color:#f0b000; }
+.menu{ margin-top:50px; display:flex; flex-direction:column; gap:25px; }
+.menu-item{ display:flex; align-items:center; gap:18px; cursor:pointer; transition:0.3s; }
+.menu-item:hover{ transform:translateX(8px); }
+.icon-box{ width:60px; height:60px; border:5px solid #1d0d92; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:28px; }
+.menu-item h3{ color:#1d0d92; font-size:24px; }
+.button{ background:#1d0d92; color:white; padding:18px; text-align:center; border-radius:15px; font-weight:bold; font-size:22px; }
+.button span{ color:#f0b000; }
+.right{ width:55%; position:relative; }
+.right img{ width:100%; height:100%; object-fit:cover; filter:grayscale(100%); }
+.page{ position:absolute; top:20px; right:30px; color:white; font-size:22px; font-weight:bold; }
+
+/* ===================================
+   REGISTRO
+=================================== */
+.register-screen{ width:100%; height:100vh; background:#ececec; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+.top-border{ width:100%; height:5px; background:#a64dff; }
+.register-header{ display:flex; justify-content:space-between; align-items:center; padding:20px 40px; }
+.logo-area{ display:flex; align-items:center; gap:15px; }
+.logo-small{ width:70px; height:70px; border-radius:10px; background:linear-gradient(135deg,#f5b000,#ff7b00); display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; }
+.register-title{ font-size:55px; font-style:italic; font-weight:800; }
+.page-btn{ background:linear-gradient(to right,#8d5dff,#e28cff); color:white; padding:12px 28px; border-radius:20px; font-weight:bold; }
+.form-container{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; position:relative; z-index:2; }
+.form-title{ font-size:55px; color:#1d0d92; font-weight:800; font-style:italic; margin-bottom:10px; }
+#registerForm { display: flex; flex-direction: column; gap: 15px; }
+.input-box, .register-btn { width: 440px; height: 60px; font-size: 20px; font-weight: 600; }
+.input-box { padding: 0 18px; border: 3px solid #333; background: transparent; outline: none; }
+.input-box::placeholder{ color:#555; }
+.register-btn { background: #1d0d92; color: white; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.register-btn:hover { background: #12075e; transform: translateY(-2px); }
+.back-btn{ margin-top: 5px; background:#888; color:white; border:none; padding:12px 30px; font-size:18px; cursor:pointer; border-radius:8px; }
+.construction-left, .construction-right{ position:absolute; bottom:0; width:220px; opacity:0.8; filter:grayscale(100%); }
+.construction-left{ left:0; }
+.construction-right{ right:0; transform:scaleX(-1); }
+
+/* =======================================
+   DASHBOARD
+======================================= */
+.orange-dashboard { width: 100%; height: 100vh; background-color: #f26f21; display: flex; flex-direction: column; overflow: hidden; }
+.dash-header { display: flex; justify-content: space-between; align-items: center; padding: 25px 50px; width: 100%; }
+.home-icon-box, .cart-icon-box { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.icon-svg { width: 100%; height: 100%; fill: #000000; }
+.dash-nav { display: flex; gap: 35px; }
+.nav-link { color: #ffffff; text-decoration: none; font-size: 20px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+.nav-link:hover { color: #000000; }
+.dash-content { flex: 1; display: flex; padding: 10px 40px 30px 40px; gap: 40px; overflow: hidden; }
+.dash-sidebar { width: 190px; display: flex; flex-direction: column; gap: 14px; }
+.sidebar-btn { width: 100%; height: 44px; background-color: #000000; color: #ffffff; border: none; border-radius: 25px; font-size: 16px; font-weight: 700; text-align: left; padding-left: 20px; cursor: pointer; display: flex; align-items: center; transition: 0.2s; }
+.sidebar-btn:hover { background-color: #222; }
+.sidebar-btn.active-btn { background-color: #ffffff; color: #000000; }
+.dash-main-panel { flex: 1; background: rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 25px; overflow-y: auto; }
+.dash-view { display: none; flex-direction: column; height: 100%; width: 100%; }
+.dash-view.active-view { display: flex; }
+.view-header-row { display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; }
+.view-title { color: #ffffff; font-size: 26px; font-weight: 800; }
+.filter-buttons { display:flex; gap:10px; }
+.filter-btn { background: rgba(0,0,0,0.2); color:white; border:none; padding:8px 15px; border-radius:20px; font-weight:600; cursor:pointer; }
+.filter-btn:hover { background: rgba(0,0,0,0.5); }
+.dash-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid-card { background: #ffffff; border-radius: 12px; overflow: hidden; display: flex; height: 120px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.interactive-card { cursor: pointer; border: 3px solid #1d0d92; transition: 0.2s; }
+.interactive-card:hover { transform: scale(1.02); }
+.interactive-card h4 span { font-size: 12px; color: #1d0d92; display: block; }
+.card-img { width: 40%; height: 100%; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+.card-info { width: 60%; padding: 15px; display: flex; flex-direction: column; justify-content: center; }
+.card-info h4 { font-size: 16px; color: #1d0d92; font-weight: 800; margin-bottom: 5px; }
+.card-info p.distance { font-size: 12px; font-weight: bold; color: #777; }
+.stars { color: #f26f21; font-size: 16px; margin-top: 5px; }
+
+/* =======================================
+   VISTAS ESPECIALES (CARRITO Y PLANIFICACIÓN)
+======================================= */
+.cart-view-layout { flex-direction: row; gap: 30px; }
+.cart-left, .cart-right { background: #ffffff; border-radius: 12px; padding: 25px; flex: 1; display:flex; flex-direction:column; }
+.cart-left .view-title, .cart-right .view-title { color: #1d0d92; margin-bottom: 20px; font-size: 22px; border-bottom: 2px solid #eee; padding-bottom:10px; }
+.cart-table { width: 100%; border-collapse: collapse; }
+.cart-table th { text-align: left; background: #f4f4f4; padding: 10px; font-size: 14px; }
+.cart-table td { padding: 15px 10px; border-bottom: 1px solid #eee; font-weight: 600; color: #333; }
+.shipping-status h4 { color: #555; margin-bottom: 15px; }
+.status-bar { display: flex; justify-content: space-between; position: relative; margin-bottom: 30px; }
+.status-bar::before { content:''; position:absolute; top:12px; left:0; width:100%; height:3px; background:#ddd; z-index:1; }
+.step { position:relative; z-index:2; background:#fff; padding-top: 30px; font-size: 12px; font-weight:bold; color:#aaa; text-align:center; }
+.step::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:25px; height:25px; border-radius:50%; background:#ddd; border:3px solid #fff; }
+.step.done::before { background:#f5b000; }
+.step.done { color:#333; }
+.step.active::before { background:#1d0d92; box-shadow:0 0 0 3px #f5b000; }
+.step.active { color:#1d0d92; }
+.map-placeholder { flex:1; background:#eee; border-radius:8px; overflow:hidden; position:relative; min-height: 200px; }
+.map-placeholder img { width:100%; height:100%; object-fit:cover; opacity: 0.6; filter: grayscale(50%); }
+.map-pin { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:#1d0d92; color:white; padding:8px 15px; border-radius:20px; font-weight:bold; font-size:14px; box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+
+/* Vistas de Texto (Quiénes Somos) */
+.text-view-layout { display: flex; flex-direction: column; gap: 25px; }
+.info-block { background: #ffffff; padding: 25px; border-radius: 12px; }
+.info-block h3 { color: #1d0d92; font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+.info-block p { color: #333; font-size: 16px; line-height: 1.6; }
+.metric-banner { background: #1d0d92; color: #ffffff; padding: 20px; border-radius: 12px; display: flex; align-items: center; gap: 25px; }
+.metric-number { font-size: 48px; font-weight: 800; color: #f5b000; }
+
+
+/* =======================================
+   MODALES (ÉXITO Y COTIZADORES CON IMÁGENES)
+======================================= */
+.success-modal, .tech-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.6); display: none; justify-content: center; align-items: center; z-index: 999; }
+.success-box, .tech-box { background: #ffffff; padding: 35px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-width: 500px; width: 90%; animation: popup 0.3s ease-out; }
+.tech-box { max-width: 600px; max-height: 90vh; overflow-y: auto; } /* Añadido scroll interno */
+@keyframes popup { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.tech-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
+.tech-header h3 { color: #1d0d92; font-size: 24px; font-weight: 800; }
+.close-tech { background: transparent; border: none; font-size: 30px; cursor: pointer; color: #999; }
+.subtitle-tech { font-weight: bold; color: #f26f21; margin-bottom: 15px; }
+
+/* NUEVOS ESTILOS PARA IMÁGENES DE PRODUCTOS EN EL MODAL */
+.product-quote-list { display:flex; flex-direction:column; gap:12px; margin-bottom:25px; }
+.quote-item { display:flex; justify-content:space-between; align-items:center; background:#f9f9f9; padding:10px 15px; border-radius:8px; font-weight:600; font-size:14px; gap: 15px; }
+.product-thumb { width: 50px; height: 50px; border-radius: 6px; object-fit: cover; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.item-details { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+.qty-control { display:flex; align-items:center; gap:15px; }
+.qty-control button { width:28px; height:28px; background:#e0e0e0; border:none; border-radius:4px; font-weight:bold; cursor:pointer; }
+.qty-control button:hover { background:#ccc; }
+
+.check-circle { width: 65px; height: 65px; background: #28a745; color: white; font-size: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; }
+.success-box h2 { color: #1d0d92; font-size: 26px; font-weight: 800; text-align: center; }
+.success-box p { color: #444; font-size: 16px; text-align: center; margin-bottom: 20px; }
+.success-btn { background: #1d0d92; color: white; border: none; padding: 14px; font-size: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.2s; }
+.success-btn:hover { background: #12075e; }
+
+/* Responsive */
+@media(max-width:900px){
+    body{ overflow:auto; }
+    .home{ flex-direction:column; height:auto; }
+    .left, .right{ width:100%; }
+    .right{ height:350px; }
+    .title, .register-title, .form-title{ font-size:35px; }
+    .input-box, .register-btn{ width:95%; }
+    .dash-content { flex-direction: column; overflow: visible; }
+    .dash-sidebar { width: 100%; flex-direction: row; overflow-x: auto; }
+    .sidebar-btn { width: 140px; flex-shrink: 0; }
+    .dash-grid, .tools-grid { grid-template-columns: 1fr; }
+    .dash-nav { display: none; } 
+    .grid-card { height: auto; flex-direction: column; }
+    .card-img, .card-info { width: 100%; }
+    .card-img { height: 120px; }
+    .cart-view-layout { flex-direction: column; }
+    .org-container { flex-direction: column; height: auto; }
+    .org-sidebar { width: 100%; }
+}
+
+/* 2. Las demás tarjetas con la clase 'card-tall' tendrán una imagen más amplia y vistosa */
+.grid-card.card-tall img {
+    height: 120px !important; /* Altura optimizada para mostrar más detalle de la estructura/equipo */
+}
+
+/* ==============================================================
+   ESTADOS DE SEGURIDAD PARA EL CAMPO CONTRASEÑA
+============================================================== */
+.input-box.secure-weak { border: 2px solid #dc3545 !important; }
+.input-box.secure-medium { border: 2px solid #ffc107 !important; }
+.input-box.secure-strong { border: 2px solid #28a745 !important; }
+
+/* Evita que el botón deshabilitado cambie de color o actúe al dar clic */
+.register-btn:disabled {
+    background-color: #cccccc !important;
+    color: #666666 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
